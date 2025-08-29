@@ -6,7 +6,7 @@ const axios = require("axios");
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-  // Command to set the API key
+  // Command to set the OpenRouter API key
   let setApiKeyCommand = vscode.commands.registerCommand(
     "commit-genius.setApiKey",
     async function () {
