@@ -1,7 +1,7 @@
 
 <div align="center">
 
-# <img src="./icon.png" alt="Commit Genius Logo" width="50"/> Commit Genius
+# <img src="./icon.png" alt="Commit Genius Logo" width="80"/> <br/> Commit Genius
 
 **🚀 Generate Professional AI-Powered Commit Messages in VS Code**
 
