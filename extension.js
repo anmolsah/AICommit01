@@ -76,8 +76,8 @@ function activate(context) {
                 headers: {
                   Authorization: `Bearer ${apiKey}`,
                   "Content-Type": "application/json",
-                  "HTTP-Referer": "http://localhost", // Required by OpenRouter for free models
-                  "X-Title": "Commit Genius", // Recommended by OpenRouter
+                  "HTTP-Referer": "http://localhost", 
+                  "X-Title": "Commit Genius", 
                 },
               }
             );
