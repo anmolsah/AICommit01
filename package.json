@@ -14,7 +14,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git"
+        "url": "https://github.com/anmolsah/AICommit01"
     },
     "activationEvents": [
         "onCommand:commit-genius.generateAICommitMessage",
