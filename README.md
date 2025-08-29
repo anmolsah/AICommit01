@@ -90,14 +90,6 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 ```bash
 code --install-extension aicommit-publisher.commit-genius
 ```
-
-### Method 3: Manual Installation
-1. Download the `.vsix` file from [GitHub Releases](https://github.com/anmolsah/AICommit01/releases)
-2. Open VS Code
-3. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
-4. Type "Extensions: Install from VSIX"
-5. Select the downloaded `.vsix` file
-
 ---
 
 ## 🎯 Quick Start Guide
@@ -168,7 +160,7 @@ code --install-extension aicommit-publisher.commit-genius
 
 #### API Key Issues
 - Ensure your API key starts with `sk-or-`
-- Check that your OpenRouter account has sufficient credits
+- Check that your OpenRouter account has sufficient credits if using paid model or continue with free models
 - Re-enter your API key if authentication fails
 
 #### Git Repository
@@ -251,11 +243,6 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 ---
 
 ## 📞 Support
-
-### 🆘 Need Help?
-- 📖 Check our [Documentation](https://github.com/anmolsah/AICommit01/wiki)
-- 🐛 Report issues on [GitHub](https://github.com/anmolsah/AICommit01/issues)
-- 💬 Join discussions in [GitHub Discussions](https://github.com/anmolsah/AICommit01/discussions)
 
 ### ⭐ Show Your Support
 If you find Commit Genius helpful, please:
