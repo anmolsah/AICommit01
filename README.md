@@ -90,10 +90,7 @@ Search for **Commit Genius** in the VS Code marketplace and install it.
 
 **Diff:**
 
-```diff
-- const name = "user";
-+ const username = "user123";
-```
+![Generate commit](./example.png)
 
 **Generated Commit Message:**
 
