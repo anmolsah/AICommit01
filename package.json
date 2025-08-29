@@ -2,7 +2,7 @@
     "name": "commit-genius",
     "displayName": "Commit Genius",
     "description": "Generate professional commit messages using AI.",
-    "version": "1.0.0",
+    "version": "1.1.1",
     "publisher": "aicommit-publisher",
     "icon": "icon.png",
     "engines": {
@@ -49,17 +49,32 @@
             "properties": {
                 "commit-genius.model": {
                     "type": "string",
-                    "default": "deepseek/deepseek-chat-v3-0324:free",
+                    "default": "mistralai/mistral-small-3.2-24b-instruct:free",
                     "description": "The AI model to use for generating commit messages from OpenRouter.",
                     "enum": [
                         "deepseek/deepseek-chat-v3-0324:free",
                         "qwen/qwen3-coder:free",
-                        "mistralai/mistral-small-3.2-24b-instruct:free"
+                        "mistralai/mistral-small-3.2-24b-instruct:free",
+                        "openai/gpt-oss-120b:free",
+                        "openai/gpt-oss-120b",
+                        "anthropic/claude-sonnet-4",
+                        "google/gemini-2.5-pro",
+                        "x-ai/grok-code-fast-1",
+                        "deepseek/deepseek-chat-v3.1",
+                        "qwen/qwen3-30b-a3b-instruct-2507"
                     ],
                     "enumDescriptions": [
                         "Deepseek 71B (Free)",
                         "Qwen 7B (Free)",
-                        "Mistral 7B Instruct (Free)"
+                        "Mistral 7B Instruct (Free)",
+                        "OpenAI GPT-OSS 120B (Free)",
+                        "OpenAI GPT-OSS 120B (Paid)",
+                        "Anthropic Claude Sonnet 4 (Paid)",
+                        "Google Gemini 2.5 Pro (Paid)",
+                        "X-AI Grok Code Fast 1 (Paid)",
+                        "Deepseek 71B (Paid)",
+                        "Qwen 30B (Paid)"
+
                     ]
                 }
             }
