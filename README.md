@@ -98,7 +98,7 @@ Search for **Commit Genius** in the VS Code marketplace and install it.
 **Generated Commit Message:**
 
 ```
-feat: update variable name from name to username
+fix: update version to 1.1.1 and modify default AI model in package.json
 ```
 
 ---
