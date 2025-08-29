@@ -1,0 +1,19 @@
+#Dependencies
+node_modules/
+
+#Lockfiles
+package-lock.json
+yarn.lock
+
+#VS Code specific
+.vscode/
+*.vsix
+
+#OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

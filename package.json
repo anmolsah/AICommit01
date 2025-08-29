@@ -1,0 +1,86 @@
+{
+    "name": "commit-genius",
+    "displayName": "Commit Genius",
+    "description": "Generate professional commit messages using AI.",
+    "version": "1.0.0",
+    "publisher": "aicommit-publisher",
+    "icon": "icon.png",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "categories": [
+        "SCM Providers",
+        "Other"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git"
+    },
+    "activationEvents": [
+        "onCommand:commit-genius.generateAICommitMessage",
+        "onCommand:commit-genius.setApiKey"
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "commit-genius.generateAICommitMessage",
+                "title": "Commit Genius: Generate AI Commit Message",
+                "category": "Commit Genius",
+                "icon": "$(sparkle)"
+            },
+            {
+                "command": "commit-genius.setApiKey",
+                "title": "Commit Genius: Set OpenRouter API Key",
+                "category": "Commit Genius"
+            }
+        ],
+        "menus": {
+            "scm/title": [
+                {
+                    "when": "scmProvider == 'git'",
+                    "command": "commit-genius.generateAICommitMessage",
+                    "group": "navigation"
+                }
+            ]
+        },
+        "configuration": {
+            "title": "Commit Genius",
+            "properties": {
+                "commit-genius.model": {
+                    "type": "string",
+                    "default": "deepseek/deepseek-chat-v3-0324:free",
+                    "description": "The AI model to use for generating commit messages from OpenRouter.",
+                    "enum": [
+                        "deepseek/deepseek-chat-v3-0324:free",
+                        "qwen/qwen3-coder:free",
+                        "mistralai/mistral-small-3.2-24b-instruct:free"
+                    ],
+                    "enumDescriptions": [
+                        "Deepseek 71B (Free)",
+                        "Qwen 7B (Free)",
+                        "Mistral 7B Instruct (Free)"
+                    ]
+                }
+            }
+        }
+    },
+    "scripts": {
+        "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.80.0",
+        "@types/glob": "^8.1.0",
+        "@types/mocha": "^10.0.1",
+        "@types/node": "20.2.5",
+        "eslint": "^8.41.0",
+        "glob": "^8.1.0",
+        "mocha": "^10.2.0",
+        "typescript": "^5.1.3",
+        "@vscode/test-electron": "^2.3.2"
+    },
+    "dependencies": {
+        "axios": "^1.6.0"
+    }
+}
+
