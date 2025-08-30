@@ -60,7 +60,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 <div align="center">
 
-![Sparkle Button Demo](assets/sparkleButton.mp4)
+![Sparkle Button Demo](https://github.com/anmolsah/AICommit01/blob/main/assets/sparkleButton.mp4)
 
 *Click the sparkle button in Source Control to generate AI commit messages*
 
