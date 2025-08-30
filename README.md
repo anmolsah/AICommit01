@@ -85,11 +85,6 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 2. Go to Extensions (`Ctrl+Shift+X` or `Cmd+Shift+X`)
 3. Search for **"Commit Genius"**
 4. Click **Install**
-
-### Method 2: Command Line
-```bash
-code --install-extension aicommit-publisher.commit-genius
-```
 ---
 
 ## 🎯 Quick Start Guide
@@ -211,34 +206,9 @@ feat: add user authentication middleware and update package version
 
 ---
 
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details on how to get started.
-
-### 🐛 Found a Bug?
-- Check existing [GitHub Issues](https://github.com/anmolsah/AICommit01/issues)
-- Create a new issue with detailed reproduction steps
-- Include your VS Code version and extension version
-
-### 💡 Feature Requests
-- Open a [GitHub Issue](https://github.com/anmolsah/AICommit01/issues) with the "enhancement" label
-- Describe your use case and proposed solution
-- We'll discuss and prioritize based on community feedback
-
----
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- **OpenRouter.ai** for providing access to multiple AI models
-- **VS Code Team** for the excellent extension API
-- **Contributors** who help improve this extension
-- **Community** for feedback and feature requests
 
 ---
 
