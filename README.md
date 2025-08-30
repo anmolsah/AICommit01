@@ -226,8 +226,7 @@ If you find Commit Genius helpful, please:
 
 **Made with ❤️ by developers, for developers**
 
-[🏠 Homepage](https://github.com/anmolsah/AICommit01) • [📦 Marketplace](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius) • [🐛 Issues](https://github.com/anmolsah/AICommit01/issues) • [💡 Discussions](https://github.com/anmolsah/AICommit01/discussions)
-
+[🏠 Homepage](https://github.com/anmolsah/AICommit01) • [📦 Marketplace](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius) 
 </div>
 
 
