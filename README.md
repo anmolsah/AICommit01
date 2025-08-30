@@ -60,7 +60,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 <div align="center">
 
-![Sparkle Button Demo](https://github.com/user-attachments/assets/f16aade2-8f07-46d1-b0c6-8de6bd54ca9e)
+![Sparkle Button Demo](https://github-production-user-asset-6210df.s3.amazonaws.com/113588714/483854919-f16aade2-8f07-46d1-b0c6-8de6bd54ca9e.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250830%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250830T064141Z&X-Amz-Expires=300&X-Amz-Signature=f664e72341260752c91f9db60dc02d66c10c008c7cf2bb3bf943e4b23b0e3731&X-Amz-SignedHeaders=host)
 
 *Click the sparkle button in Source Control to generate AI commit messages*
 
