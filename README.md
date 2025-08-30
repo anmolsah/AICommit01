@@ -109,6 +109,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 | `qwen/qwen3-coder:free` | Qwen | Specialized code understanding |
 | `mistralai/mistral-small-3.2-24b-instruct:free` | Mistral | Balanced performance and speed |
 | `openai/gpt-oss-120b:free` | OpenAI | Large context understanding |
+| `moonshotai/kimi-k2:free` | MoonshotAI | Optimized for agentic capabilities |
 
 #### 💎 Premium Models
 | Model | Provider | Description |
@@ -117,6 +118,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 | `google/gemini-2.5-pro` | Google | Advanced multimodal capabilities |
 | `x-ai/grok-code-fast-1` | X.AI | Fast and efficient code generation |
 | `deepseek/deepseek-chat-v3.1` | DeepSeek | Enhanced version with better accuracy |
+
 
 ### Settings Configuration
 ```json
