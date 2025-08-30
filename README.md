@@ -3,7 +3,7 @@
 
 # <img src="./icon.png" alt="Commit Genius Logo" width="80"/> <br/> Commit Genius
 
-**🚀 Generate Professional AI-Powered Commit Messages in VS Code**
+** Generate Professional AI-Powered Commit Messages in VS Code**
 
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/aicommit-publisher.commit-genius?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius)
 [![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/aicommit-publisher.commit-genius?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius)
@@ -16,7 +16,7 @@
 
 ---
 
-## 🎯 Why Commit Genius?
+##  Why Commit Genius?
 
 Tired of spending precious time crafting the perfect commit message? **Commit Genius** revolutionizes your Git workflow by generating professional, conventional commit messages using advanced AI models. Just make your changes, click the sparkle button, and let AI do the heavy lifting - staging happens automatically!
 
@@ -29,7 +29,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 ---
 
-## 🚀 Features
+##  Features
 
 ### 🤖 AI-Powered Generation
 - Generate commit messages using state-of-the-art AI models
@@ -54,7 +54,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 ---
 
-## 📹 Demo Videos
+##  Demo Videos
 
 ### ✨ Sparkle Button in Action
 
@@ -68,7 +68,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 ---
 
-## 🛠️ Installation
+##  Installation
 
 ### Method 1: VS Code Marketplace (Recommended)
 1. Open VS Code
@@ -77,7 +77,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 4. Click **Install**
 ---
 
-## 🎯 Quick Start Guide
+##  Quick Start Guide
 
 ### Step 1: Get Your API Key
 1. Visit [OpenRouter.ai](https://openrouter.ai/keys)
@@ -98,7 +98,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
 ### Available Models
 
@@ -127,7 +127,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 ---
 
-## 💡 Usage Tips
+##  Usage Tips
 
 ### 🎯 Best Practices
 - **Keep changes focused**: Make focused, related changes for more accurate commit messages
@@ -135,7 +135,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 - **Use descriptive file names**: Better file names lead to better commit messages
 - **Commit frequently**: Smaller, focused commits generate better messages
 
-### 🚨 Troubleshooting
+###  Troubleshooting
 
 #### Rate Limits
 - Free models have usage limits
@@ -154,7 +154,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 ---
 
-## 📊 Example Output
+##  Example Output
 
 ### Input: Staged Changes
 ```diff
@@ -179,7 +179,7 @@ feat: add user authentication middleware and update package version
 
 ---
 
-## 🔒 Security & Privacy
+##  Security & Privacy
 
 ### 🛡️ Data Protection
 - **Local Storage**: API keys are stored securely in VS Code's encrypted secret storage
@@ -195,13 +195,13 @@ feat: add user authentication middleware and update package version
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
 ---
 
-## 📞 Support
+##  Support
 
 ### ⭐ Show Your Support
 If you find Commit Genius helpful, please:
