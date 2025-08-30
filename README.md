@@ -60,7 +60,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 <div align="center">
 
-![Sparkle Button Demo](sparkleButton.mp4)
+![Sparkle Button Demo](assets/sparkleButton.mp4)
 
 *Click the sparkle button in Source Control to generate AI commit messages*
 
@@ -70,7 +70,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 <div align="center">
 
-![Staging Demo](stagging.mp4)
+![Staging Demo](assets/stagging.mp4)
 
 *Staging changes for generating commit messages*
 
