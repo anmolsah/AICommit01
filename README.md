@@ -7,6 +7,7 @@
 
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/aicommit-publisher.commit-genius?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius)
 [![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/aicommit-publisher.commit-genius?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius)
+[![Open VSX Downloads](https://img.shields.io/open-vsx/dt/aicommit-publisher/commit-genius?style=for-the-badge&logo=eclipse-ide&logoColor=white&label=Open%20VSX%20Downloads)](https://open-vsx.org/extension/aicommit-publisher/commit-genius)
 [![GitHub Repo stars](https://img.shields.io/github/stars/anmolsah/AICommit01?style=for-the-badge&logo=github)](https://github.com/anmolsah/AICommit01)
 [![License](https://img.shields.io/github/license/anmolsah/AICommit01?style=for-the-badge)](./LICENSE)
 
