@@ -36,7 +36,7 @@ function activate(context) {
         const diff = await getGitDiff();
         if (!diff) {
           vscode.window.showInformationMessage(
-            "No staged changes found to generate a commit message."
+            "No changes found to generate a commit message."
           );
           return;
         }
@@ -146,20 +146,32 @@ function getGitDiff() {
       return resolve("");
     }
 
-    exec("git diff --staged", { cwd }, (error, stdout, stderr) => {
-      if (error) {
-        console.error(`exec error: ${error}`);
-        // Don't reject, as this could just mean it's not a git repo.
-        // The extension should handle an empty diff gracefully.
+    // First, automatically stage all changes
+    exec("git add .", { cwd }, (addError, addStdout, addStderr) => {
+      if (addError) {
+        console.error(`git add error: ${addError}`);
         vscode.window.showErrorMessage(
-          "Failed to run git diff. Is this a Git repository?"
+          "Failed to stage changes. Is this a Git repository?"
         );
         return resolve("");
       }
-      if (stderr) {
-        console.error(`stderr: ${stderr}`);
-      }
-      resolve(stdout);
+
+      // Then get the staged diff
+      exec("git diff --staged", { cwd }, (error, stdout, stderr) => {
+        if (error) {
+          console.error(`exec error: ${error}`);
+          // Don't reject, as this could just mean it's not a git repo.
+          // The extension should handle an empty diff gracefully.
+          vscode.window.showErrorMessage(
+            "Failed to run git diff. Is this a Git repository?"
+          );
+          return resolve("");
+        }
+        if (stderr) {
+          console.error(`stderr: ${stderr}`);
+        }
+        resolve(stdout);
+      });
     });
   });
 }

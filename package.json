@@ -2,7 +2,7 @@
     "name": "commit-genius",
     "displayName": "Commit Genius",
     "description": "Generate professional commit messages using AI.",
-    "version": "1.1.5",
+    "version": "2.1.6",
     "publisher": "aicommit-publisher",
     "icon": "icon.png",
     "engines": {

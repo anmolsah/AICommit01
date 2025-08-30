@@ -18,7 +18,7 @@
 
 ## 🎯 Why Commit Genius?
 
-Tired of spending precious time crafting the perfect commit message? **Commit Genius** revolutionizes your Git workflow by generating professional, conventional commit messages using advanced AI models. Just stage your changes, click the sparkle button, and let AI do the heavy lifting!
+Tired of spending precious time crafting the perfect commit message? **Commit Genius** revolutionizes your Git workflow by generating professional, conventional commit messages using advanced AI models. Just make your changes, click the sparkle button, and let AI do the heavy lifting - staging happens automatically!
 
 ### ✨ Key Benefits
 - **⚡ Lightning Fast**: Generate commit messages in seconds
@@ -66,16 +66,6 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 </div>
 
-### 📝 Staging and Committing Workflow
-
-<div align="center">
-
-![Staging Demo](assets/stagging.gif)
-
-*Staging changes for generating commit messages*
-
-</div>
-
 ---
 
 ## 🛠️ Installation
@@ -97,10 +87,9 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 ### Step 2: Configure Commit Genius
 1. Make some changes in your Git repository
-2. Stage your changes using the `+` button in Source Control
-3. Click the **✨ sparkle button** in the Source Control panel
-4. Paste your API key when prompted
-5. Watch as your commit message is generated!
+2. Click the **✨ sparkle button** in the Source Control panel (staging happens automatically)
+3. Paste your API key when prompted
+4. Watch as your commit message is generated!
 
 ### Step 3: Customize (Optional)
 - Go to **Settings** → **Extensions** → **Commit Genius**
@@ -141,10 +130,10 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 ## 💡 Usage Tips
 
 ### 🎯 Best Practices
-- **Stage specific changes**: Stage only related changes for more accurate commit messages
+- **Keep changes focused**: Make focused, related changes for more accurate commit messages
 - **Review before committing**: Always review the generated message and edit if needed
 - **Use descriptive file names**: Better file names lead to better commit messages
-- **Keep changes focused**: Smaller, focused commits generate better messages
+- **Commit frequently**: Smaller, focused commits generate better messages
 
 ### 🚨 Troubleshooting
 
@@ -160,7 +149,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 #### Git Repository
 - Ensure you're in a valid Git repository
-- Make sure you have staged changes before generating commits
+- Make sure you have changes in your working directory (staging happens automatically)
 - Check that Git is properly installed and configured
 
 ---
