@@ -213,7 +213,7 @@ If you find Commit Genius helpful, please:
 
 <div align="center">
 
-**Made with ❤️ by developers, for developers**
+**Made with ❤️ by Anmol**
 
 [🏠 Homepage](https://github.com/anmolsah/AICommit01) • [📦 Marketplace](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius) 
 </div>
