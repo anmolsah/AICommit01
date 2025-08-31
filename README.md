@@ -3,7 +3,7 @@
 
 # <img src="./icon.png" alt="Commit Genius Logo" width="80"/> <br/> Commit Genius
 
-** Generate Professional AI-Powered Commit Messages in VS Code**
+**Generate Professional AI-Powered Commit Messages in VS Code**
 
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/aicommit-publisher.commit-genius?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius)
 [![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/aicommit-publisher.commit-genius?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius)
@@ -71,8 +71,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 ##  Installation
 
-### Method 1: VS Code Marketplace (Recommended)
-1. Open VS Code
+1. Open VS Code or any other code IDE
 2. Go to Extensions (`Ctrl+Shift+X` or `Cmd+Shift+X`)
 3. Search for **"Commit Genius"**
 4. Click **Install**
