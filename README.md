@@ -38,7 +38,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 - Intelligent analysis of your staged changes
 
 ### 📋 Conventional Commits
-- Automatically formats messages with proper prefixes (`feat:`, `fix:`, `chore:`, etc.)
+- Automatically formats messages with proper prefixes (`feat:`, `fix:`, `chore:`, etc...)
 - Maintains consistent commit history
 - Improves project maintainability and readability
 
