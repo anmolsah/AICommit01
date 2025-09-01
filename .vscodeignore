@@ -1,6 +1,10 @@
 node_modules/
 .git/
 test-extension.js
+extension-minimal.js
+extension-fixed.js
+ACTIVATION_*.md
+REBUILD_*.md
 *.log
 .DS_Store
 Thumbs.db

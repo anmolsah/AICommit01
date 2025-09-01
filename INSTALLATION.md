@@ -1,6 +1,6 @@
 # Commit Genius - Installation & Usage Guide
 
-## 🚀 Quick Installation
+## Quick Installation
 
 ### Method 1: Install from VSIX (Recommended)
 

@@ -1,11 +1,12 @@
 const vscode = require("vscode");
-const axios = require("axios");
+
+// Load axios only when needed to avoid activation delays
 
 /**
  * @param {vscode.ExtensionContext} context
  */
-async function activate(context) {
-  console.log('Commit Genius is now active!');
+function activate(context) {
+  console.log('🚀 Commit Genius extension is now active!');
 
   // Register command to set API key
   const setApiKeyCommand = vscode.commands.registerCommand(
@@ -39,44 +40,38 @@ async function activate(context) {
   // Register main command to generate commit message
   const generateCommitMessageCommand = vscode.commands.registerCommand(
     "commit-genius.generateAICommitMessage",
-    async () => {
-      try {
-        await generateCommitMessage(context);
-      } catch (error) {
+    () => {
+      console.log('🎯 Sparkle button clicked! Generating commit message...');
+
+      // Run the async operation without blocking activation
+      generateCommitMessage(context).catch(error => {
         console.error("Commit Genius Error:", error);
         vscode.window.showErrorMessage(`Commit Genius failed: ${error.message}`);
-      }
+      });
     }
   );
 
-  // Listen for configuration changes
-  const configChangeListener = vscode.workspace.onDidChangeConfiguration(
-    async (event) => {
-      if (event.affectsConfiguration("commit-genius.apiKey")) {
-        const config = vscode.workspace.getConfiguration("commit-genius");
-        const apiKey = config.get("apiKey");
-
-        if (apiKey) {
-          await context.secrets.store("openRouterApiKey", apiKey);
-          vscode.window.showInformationMessage("✅ API Key updated and stored securely.");
-          // Clear from settings for security
-          await config.update("apiKey", "", vscode.ConfigurationTarget.Global);
-        }
-      }
-    }
-  );
-
+  // Register all commands (removed config listener to prevent activation delays)
   context.subscriptions.push(
     setApiKeyCommand,
-    generateCommitMessageCommand,
-    configChangeListener
+    generateCommitMessageCommand
   );
+
+  // Show activation confirmation after everything is registered
+  setTimeout(() => {
+    vscode.window.showInformationMessage("✨ Commit Genius is ready! Look for the sparkle button in Source Control.");
+  }, 200);
+
+  console.log('✅ Commit Genius activation completed successfully');
 }
 
 /**
  * Main function to generate commit message
  */
 async function generateCommitMessage(context) {
+  // Show immediate feedback
+  vscode.window.showInformationMessage('🤖 Generating AI commit message...');
+
   // Get Git API
   const gitExtension = vscode.extensions.getExtension("vscode.git")?.exports;
   const gitApi = gitExtension?.getAPI(1);
@@ -208,24 +203,61 @@ Commit message:`;
     },
     async () => {
       try {
-        const response = await axios.post(
-          "https://openrouter.ai/api/v1/chat/completions",
-          {
-            model: model,
-            messages: [{ role: "user", content: prompt }],
-            max_tokens: 100,
-            temperature: 0.3
+        // Use Node.js built-in https instead of axios
+        const https = require("https");
+
+        const postData = JSON.stringify({
+          model: model,
+          messages: [{ role: "user", content: prompt }],
+          max_tokens: 100,
+          temperature: 0.3
+        });
+
+        const options = {
+          hostname: 'openrouter.ai',
+          port: 443,
+          path: '/api/v1/chat/completions',
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Content-Type': 'application/json',
+            'Content-Length': Buffer.byteLength(postData),
+            'HTTP-Referer': 'https://github.com/anmolsah/AICommit01',
+            'X-Title': 'Commit Genius VS Code Extension'
           },
-          {
-            headers: {
-              "Authorization": `Bearer ${apiKey}`,
-              "Content-Type": "application/json",
-              "HTTP-Referer": "https://github.com/anmolsah/AICommit01",
-              "X-Title": "Commit Genius VS Code Extension"
-            },
-            timeout: 30000 // 30 second timeout
-          }
-        );
+          timeout: 30000
+        };
+
+        const response = await new Promise((resolve, reject) => {
+          const req = https.request(options, (res) => {
+            let data = '';
+
+            res.on('data', (chunk) => {
+              data += chunk;
+            });
+
+            res.on('end', () => {
+              try {
+                const jsonData = JSON.parse(data);
+                resolve({ data: jsonData, status: res.statusCode });
+              } catch (error) {
+                reject(new Error(`Invalid JSON response: ${data}`));
+              }
+            });
+          });
+
+          req.on('error', (error) => {
+            reject(error);
+          });
+
+          req.on('timeout', () => {
+            req.destroy();
+            reject(new Error('Request timeout'));
+          });
+
+          req.write(postData);
+          req.end();
+        });
 
         if (!response.data?.choices?.[0]?.message?.content) {
           throw new Error("Invalid response from AI service");
@@ -254,26 +286,14 @@ Commit message:`;
 
         let errorMessage = "Failed to generate commit message";
 
-        if (error.response) {
-          const status = error.response.status;
-          const data = error.response.data;
-
-          if (status === 429) {
-            errorMessage = "⏱️ Rate limit exceeded. Please wait a moment and try again.";
-          } else if (status === 401) {
-            errorMessage = "🔑 Invalid API key. Please check your OpenRouter API key.";
-          } else if (status === 402) {
-            errorMessage = "💳 Insufficient credits. Please add credits to your OpenRouter account.";
-          } else {
-            const apiError = data?.error?.message || JSON.stringify(data);
-            errorMessage = `API Error (${status}): ${apiError}`;
-          }
-        } else if (error.request) {
-          errorMessage = "🌐 Network error. Please check your internet connection.";
-        } else if (error.code === 'ECONNABORTED') {
+        if (error.message === 'Request timeout') {
           errorMessage = "⏰ Request timeout. Please try again.";
+        } else if (error.message && error.message.includes('ENOTFOUND')) {
+          errorMessage = "🌐 Network error. Please check your internet connection.";
+        } else if (error.message && error.message.includes('Invalid JSON')) {
+          errorMessage = "📡 Invalid response from AI service. Please try again.";
         } else {
-          errorMessage = error.message;
+          errorMessage = error.message || "Unknown error occurred";
         }
 
         vscode.window.showErrorMessage(`Commit Genius: ${errorMessage}`);
