@@ -2,7 +2,7 @@
     "name": "commit-genius",
     "displayName": "Commit Genius",
     "description": "Generate professional commit messages using AI.",
-    "version": "2.4.0",
+    "version": "2.5.0",
     "publisher": "aicommit-publisher",
     "icon": "icon.png",
     "engines": {
@@ -17,8 +17,7 @@
         "url": "https://github.com/anmolsah/AICommit01"
     },
     "activationEvents": [
-        "onCommand:commit-genius.generateAICommitMessage",
-        "onCommand:commit-genius.setApiKey"
+        "onStartupFinished"
     ],
     "main": "./extension.js",
     "contributes": {

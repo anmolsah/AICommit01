@@ -209,7 +209,6 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 If you find Commit Genius helpful, please:
 - ⭐ Star the repository on [GitHub](https://github.com/anmolsah/AICommit01)
 - 📝 Leave a review on the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius)
-- 🐦 Share with your developer friends
 
 ---
 

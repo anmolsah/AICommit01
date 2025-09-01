@@ -1,198 +1,290 @@
 const vscode = require("vscode");
-const { exec } = require("child_process");
 const axios = require("axios");
 
 /**
  * @param {vscode.ExtensionContext} context
  */
 async function activate(context) {
-  // Command to set the API key
-  let setApiKeyCommand = vscode.commands.registerCommand(
+  console.log('Commit Genius is now active!');
+
+  // Register command to set API key
+  const setApiKeyCommand = vscode.commands.registerCommand(
     "commit-genius.setApiKey",
-    async function () {
-      const apiKey = await vscode.window.showInputBox({
-        prompt: "Enter your OpenRouter.ai API Key",
-        password: true,
-        ignoreFocusOut: true,
-        placeHolder: "sk-or-...",
-      });
-
-      if (apiKey) {
-        await context.secrets.store("openRouterApiKey", apiKey);
-        vscode.window.showInformationMessage(
-          "OpenRouter API Key stored successfully."
-        );
-      } else {
-        vscode.window.showWarningMessage("API Key was not entered.");
-      }
-    }
-  );
-
-  // Command to generate the commit message
-  let generateCommitMessageCommand = vscode.commands.registerCommand(
-    "commit-genius.generateAICommitMessage",
-    async function () {
+    async () => {
       try {
-        // Step 1: Get the official VS Code Git API
-        const gitExtension =
-          vscode.extensions.getExtension("vscode.git")?.exports;
-        const api = gitExtension?.getAPI(1);
+        const apiKey = await vscode.window.showInputBox({
+          prompt: "Enter your OpenRouter.ai API Key",
+          password: true,
+          ignoreFocusOut: true,
+          placeHolder: "sk-or-...",
+          validateInput: (value) => {
+            if (!value) return "API key is required";
+            if (!value.startsWith("sk-or-")) return "API key should start with 'sk-or-'";
+            return null;
+          }
+        });
 
-        if (!api) {
-          vscode.window.showErrorMessage(
-            "Could not access the VS Code Git extension. Please ensure it is enabled."
-          );
-          return;
+        if (apiKey) {
+          await context.secrets.store("openRouterApiKey", apiKey);
+          vscode.window.showInformationMessage("✅ OpenRouter API Key stored successfully!");
+        } else {
+          vscode.window.showWarningMessage("❌ API Key was not entered.");
         }
-
-        // Step 2: Find the active repository
-        const repo = api.repositories[0];
-        if (!repo) {
-          vscode.window.showErrorMessage("No active Git repository found.");
-          return;
-        }
-
-        // Step 3: Get all unstaged changes using the API
-        // The `workingTreeChanges` property gives us all files that have been modified but not staged.
-        const unstagedChanges = repo.state.workingTreeChanges;
-
-        if (unstagedChanges.length > 0) {
-          // Step 4: Stage all changes using the API's `add` command. This is robust and bypasses hooks.
-          const fileUris = unstagedChanges.map((change) => change.uri);
-          await repo.add(fileUris);
-        }
-
-        // Step 5: Get the staged diff using a simple git command.
-        // This is safer than `git add` and is the most reliable way to get the diff string.
-        const stagedDiff = await runGitDiffCommand(repo.rootUri.fsPath);
-
-        // Step 6: If there's no diff, it means there were no changes to begin with.
-        if (!stagedDiff) {
-          vscode.window.showInformationMessage("No changes found to commit.");
-          return;
-        }
-
-        // Step 7: Proceed with generating the message from the staged diff.
-        await generateMessageFromDiff(stagedDiff, context);
       } catch (error) {
-        vscode.window.showErrorMessage(
-          `Commit Genius failed: ${error.message}`
-        );
-        console.error("Commit Genius command failed:", error);
+        vscode.window.showErrorMessage(`Failed to store API key: ${error.message}`);
       }
     }
   );
 
-  context.subscriptions.push(setApiKeyCommand, generateCommitMessageCommand);
+  // Register main command to generate commit message
+  const generateCommitMessageCommand = vscode.commands.registerCommand(
+    "commit-genius.generateAICommitMessage",
+    async () => {
+      try {
+        await generateCommitMessage(context);
+      } catch (error) {
+        console.error("Commit Genius Error:", error);
+        vscode.window.showErrorMessage(`Commit Genius failed: ${error.message}`);
+      }
+    }
+  );
+
+  // Listen for configuration changes
+  const configChangeListener = vscode.workspace.onDidChangeConfiguration(
+    async (event) => {
+      if (event.affectsConfiguration("commit-genius.apiKey")) {
+        const config = vscode.workspace.getConfiguration("commit-genius");
+        const apiKey = config.get("apiKey");
+
+        if (apiKey) {
+          await context.secrets.store("openRouterApiKey", apiKey);
+          vscode.window.showInformationMessage("✅ API Key updated and stored securely.");
+          // Clear from settings for security
+          await config.update("apiKey", "", vscode.ConfigurationTarget.Global);
+        }
+      }
+    }
+  );
+
+  context.subscriptions.push(
+    setApiKeyCommand,
+    generateCommitMessageCommand,
+    configChangeListener
+  );
 }
 
 /**
- * Takes a git diff, gets commit suggestions, and populates the SCM input box.
- * @param {string} diff The git diff string.
- * @param {vscode.ExtensionContext} context The extension context.
+ * Main function to generate commit message
  */
-async function generateMessageFromDiff(diff, context) {
+async function generateCommitMessage(context) {
+  // Get Git API
+  const gitExtension = vscode.extensions.getExtension("vscode.git")?.exports;
+  const gitApi = gitExtension?.getAPI(1);
+
+  if (!gitApi) {
+    throw new Error("Git extension not found. Please ensure Git is installed and the Git extension is enabled.");
+  }
+
+  // Get active repository
+  const repo = gitApi.repositories[0];
+  if (!repo) {
+    throw new Error("No Git repository found. Please open a folder with a Git repository.");
+  }
+
+  // Check for changes
+  const workingTreeChanges = repo.state.workingTreeChanges;
+  const indexChanges = repo.state.indexChanges;
+
+  let changesToAnalyze = [];
+  let shouldStage = false;
+
+  if (workingTreeChanges.length > 0) {
+    // We have unstaged changes, we'll stage them
+    changesToAnalyze = workingTreeChanges;
+    shouldStage = true;
+  } else if (indexChanges.length > 0) {
+    // We have staged changes, use them
+    changesToAnalyze = indexChanges;
+    shouldStage = false;
+  } else {
+    vscode.window.showInformationMessage("ℹ️ No changes found to commit.");
+    return;
+  }
+
+  // Get diff content
+  let diffContent = "";
+  try {
+    if (shouldStage) {
+      // Get diff for unstaged changes and stage them
+      const diffPromises = changesToAnalyze.map(async (change) => {
+        try {
+          return await repo.diffWithHEAD(change.uri.fsPath);
+        } catch (error) {
+          console.warn(`Could not get diff for ${change.uri.fsPath}:`, error);
+          return `Modified: ${change.uri.fsPath}`;
+        }
+      });
+
+      const diffs = await Promise.all(diffPromises);
+      diffContent = diffs.filter(diff => diff).join("\n");
+
+      // Stage the files
+      const filePaths = changesToAnalyze.map(change => change.uri.fsPath);
+      await repo.add(filePaths);
+
+      vscode.window.showInformationMessage(`📁 Staged ${filePaths.length} file(s)`);
+    } else {
+      // Get diff for already staged changes
+      const diffPromises = changesToAnalyze.map(async (change) => {
+        try {
+          return await repo.diffIndexWithHEAD(change.uri.fsPath);
+        } catch (error) {
+          console.warn(`Could not get staged diff for ${change.uri.fsPath}:`, error);
+          return `Staged: ${change.uri.fsPath}`;
+        }
+      });
+
+      const diffs = await Promise.all(diffPromises);
+      diffContent = diffs.filter(diff => diff).join("\n");
+    }
+  } catch (error) {
+    console.warn("Error getting diff content:", error);
+    // Fallback to file names
+    diffContent = changesToAnalyze.map(change =>
+      `${change.status === 1 ? 'Modified' : change.status === 2 ? 'Added' : 'Deleted'}: ${change.uri.fsPath}`
+    ).join("\n");
+  }
+
+  if (!diffContent.trim()) {
+    throw new Error("Could not analyze changes. Please ensure you have valid Git changes.");
+  }
+
+  // Generate commit message using AI
+  await generateMessageFromDiff(diffContent, context, repo);
+}
+
+/**
+ * Generate commit message from diff using AI
+ */
+async function generateMessageFromDiff(diff, context, repo) {
+  // Check for API key
   const apiKey = await context.secrets.get("openRouterApiKey");
   if (!apiKey) {
     const action = await vscode.window.showWarningMessage(
-      "OpenRouter API key not set. Please set it to use Commit Genius.",
+      "🔑 OpenRouter API key not set. Please set it to use Commit Genius.",
       "Set API Key"
     );
     if (action === "Set API Key") {
-      vscode.commands.executeCommand("commit-genius.setApiKey");
+      await vscode.commands.executeCommand("commit-genius.setApiKey");
     }
     return;
   }
 
-  const model = vscode.workspace.getConfiguration("commit-genius").get("model");
-  const prompt = `Based on the following git diff, generate a concise and professional commit message. The message should follow conventional commit standards. It should be a single line, no more than 72 characters, starting with a type like 'feat', 'fix', 'chore', etc. Do not include any explanations or extra text, only the commit message itself.\n\nDiff:\n${diff}`;
+  // Get model configuration
+  const config = vscode.workspace.getConfiguration("commit-genius");
+  const model = config.get("model") || "mistralai/mistral-small-3.2-24b-instruct:free";
 
+  // Create prompt
+  const prompt = `Based on the following git diff, generate a concise and professional commit message following conventional commit standards.
+
+Rules:
+- Single line, maximum 72 characters
+- Start with type: feat, fix, chore, docs, style, refactor, test, etc.
+- Format: "type: brief description"
+- Be specific and descriptive
+- No quotes, explanations, or extra text
+
+Git diff:
+${diff}
+
+Commit message:`;
+
+  // Show progress and make API call
   await vscode.window.withProgress(
     {
       location: vscode.ProgressLocation.Notification,
-      title: "Commit Genius: Generating commit message...",
+      title: "🤖 Generating commit message...",
       cancellable: false,
     },
     async () => {
       try {
         const response = await axios.post(
           "https://openrouter.ai/api/v1/chat/completions",
-          { model: model, messages: [{ role: "user", content: prompt }] },
+          {
+            model: model,
+            messages: [{ role: "user", content: prompt }],
+            max_tokens: 100,
+            temperature: 0.3
+          },
           {
             headers: {
-              Authorization: `Bearer ${apiKey}`,
+              "Authorization": `Bearer ${apiKey}`,
               "Content-Type": "application/json",
-              "HTTP-Referer": "http://localhost", // Required for free models
-              "X-Title": "Commit Genius",
+              "HTTP-Referer": "https://github.com/anmolsah/AICommit01",
+              "X-Title": "Commit Genius VS Code Extension"
             },
+            timeout: 30000 // 30 second timeout
           }
         );
 
-        const commitMessage = response.data.choices[0].message.content
-          .trim()
-          .replace(/['"`]/g, "");
-        const gitExtension =
-          vscode.extensions.getExtension("vscode.git")?.exports;
-        const api = gitExtension?.getAPI(1);
-
-        if (api && api.repositories.length > 0) {
-          api.repositories[0].inputBox.value = commitMessage;
-        } else {
-          vscode.window.showErrorMessage("No active Git repository found.");
+        if (!response.data?.choices?.[0]?.message?.content) {
+          throw new Error("Invalid response from AI service");
         }
+
+        let commitMessage = response.data.choices[0].message.content
+          .trim()
+          .replace(/^["'`]|["'`]$/g, "") // Remove quotes
+          .replace(/\n.*$/s, ""); // Take only first line
+
+        // Ensure it's not too long
+        if (commitMessage.length > 72) {
+          commitMessage = commitMessage.substring(0, 69) + "...";
+        }
+
+        // Set the commit message in the input box
+        if (repo && repo.inputBox) {
+          repo.inputBox.value = commitMessage;
+          vscode.window.showInformationMessage(`✨ Generated: "${commitMessage}"`);
+        } else {
+          vscode.window.showErrorMessage("Could not access Git input box");
+        }
+
       } catch (error) {
-        console.error("Commit Genius Error:", error);
-        let errorMessage = "Failed to generate commit message.";
+        console.error("API Error:", error);
+
+        let errorMessage = "Failed to generate commit message";
+
         if (error.response) {
-          if (error.response.status === 429) {
-            errorMessage =
-              "You have exceeded the API rate limit. Please wait a moment before trying again.";
+          const status = error.response.status;
+          const data = error.response.data;
+
+          if (status === 429) {
+            errorMessage = "⏱️ Rate limit exceeded. Please wait a moment and try again.";
+          } else if (status === 401) {
+            errorMessage = "🔑 Invalid API key. Please check your OpenRouter API key.";
+          } else if (status === 402) {
+            errorMessage = "💳 Insufficient credits. Please add credits to your OpenRouter account.";
           } else {
-            const apiError =
-              error.response.data.error?.message ||
-              JSON.stringify(error.response.data);
-            errorMessage = `API Error: ${error.response.status} - ${apiError}`;
+            const apiError = data?.error?.message || JSON.stringify(data);
+            errorMessage = `API Error (${status}): ${apiError}`;
           }
         } else if (error.request) {
-          errorMessage = "Network error. Could not connect to OpenRouter API.";
+          errorMessage = "🌐 Network error. Please check your internet connection.";
+        } else if (error.code === 'ECONNABORTED') {
+          errorMessage = "⏰ Request timeout. Please try again.";
         } else {
           errorMessage = error.message;
         }
-        vscode.window.showErrorMessage(`Commit Genius Error: ${errorMessage}`);
+
+        vscode.window.showErrorMessage(`Commit Genius: ${errorMessage}`);
       }
     }
   );
 }
 
-/**
- * Runs the `git diff --staged` command in a specific directory.
- * @param {string} cwd The directory to run the command in.
- * @returns {Promise<string>} A promise that resolves with the stdout.
- */
-function runGitDiffCommand(cwd) {
-  return new Promise((resolve, reject) => {
-    if (!cwd) {
-      return reject(new Error("Workspace folder not found."));
-    }
-
-    exec(
-      "git diff --staged",
-      { cwd, maxBuffer: 1024 * 10000 },
-      (error, stdout, stderr) => {
-        if (error) {
-          return reject(
-            new Error(
-              `Failed to run 'git diff --staged': ${stderr || error.message}`
-            )
-          );
-        }
-        resolve(stdout);
-      }
-    );
-  });
+function deactivate() {
+  console.log('Commit Genius deactivated');
 }
-
-function deactivate() {}
 
 module.exports = {
   activate,
