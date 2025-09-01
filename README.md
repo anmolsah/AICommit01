@@ -19,7 +19,7 @@
 
 ##  Why Commit Genius?
 
-Tired of spending precious time crafting the perfect commit message? **Commit Genius** revolutionizes your Git workflow by generating professional, conventional commit messages using advanced AI models. Just make your changes, click the sparkle button, and let AI do the heavy lifting - staging happens automatically!
+Tired of spending precious time crafting the perfect commit message? **Commit Genius** revolutionizes your Git workflow by generating professional, conventional commit messages using advanced AI models. Just make your changes, click the sparkle button, and let AI do the heavy lifting - staging happens automatically!!!
 
 ### ✨ Key Benefits
 - **⚡ Lightning Fast**: Generate commit messages in seconds
