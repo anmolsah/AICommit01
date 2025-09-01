@@ -1,102 +1,102 @@
 {
-    "name": "commit-genius",
-    "displayName": "Commit Genius",
-    "description": "Generate professional commit messages using AI.",
-    "version": "2.5.0",
-    "publisher": "aicommit-publisher",
-    "icon": "icon.png",
-    "engines": {
-        "vscode": "^1.80.0"
-    },
-    "categories": [
-        "SCM Providers",
-        "Other"
+  "name": "commit-genius",
+  "displayName": "Commit Genius",
+  "description": "Generate professional commit messages using AI.",
+  "version": "2.5.1",
+  "publisher": "aicommit-publisher",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "SCM Providers",
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anmolsah/AICommit01"
+  },
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:commit-genius.generateAICommitMessage",
+    "onCommand:commit-genius.setApiKey"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "commit-genius.generateAICommitMessage",
+        "title": "Commit Genius: Generate AI Commit Message",
+        "category": "Commit Genius",
+        "icon": "$(sparkle)"
+      },
+      {
+        "command": "commit-genius.setApiKey",
+        "title": "Commit Genius: Set OpenRouter API Key",
+        "category": "Commit Genius"
+      }
     ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/anmolsah/AICommit01"
-    },
-    "activationEvents": [
-        "onStartupFinished"
-    ],
-    "main": "./extension.js",
-    "contributes": {
-        "commands": [
-            {
-                "command": "commit-genius.generateAICommitMessage",
-                "title": "Commit Genius: Generate AI Commit Message",
-                "category": "Commit Genius",
-                "icon": "$(sparkle)"
-            },
-            {
-                "command": "commit-genius.setApiKey",
-                "title": "Commit Genius: Set OpenRouter API Key",
-                "category": "Commit Genius"
-            }
-        ],
-        "menus": {
-            "scm/title": [
-                {
-                    "when": "scmProvider == 'git'",
-                    "command": "commit-genius.generateAICommitMessage",
-                    "group": "navigation"
-                }
-            ]
-        },
-        "configuration": {
-            "title": "Commit Genius",
-            "properties": {
-                "commit-genius.model": {
-                    "type": "string",
-                    "default": "mistralai/mistral-small-3.2-24b-instruct:free",
-                    "description": "The AI model to use for generating commit messages from OpenRouter.",
-                    "enum": [
-                        "deepseek/deepseek-chat-v3-0324:free",
-                        "qwen/qwen3-coder:free",
-                        "mistralai/mistral-small-3.2-24b-instruct:free",
-                        "openai/gpt-oss-120b:free",
-                        "moonshotai/kimi-k2:free",
-                        "openai/gpt-oss-120b",
-                        "anthropic/claude-sonnet-4",
-                        "google/gemini-2.5-pro",
-                        "x-ai/grok-code-fast-1",
-                        "deepseek/deepseek-chat-v3.1",
-                        "qwen/qwen3-30b-a3b-instruct-2507"
-                    ],
-                    "enumDescriptions": [
-                        "Deepseek 71B (Free)",
-                        "Qwen 7B (Free)",
-                        "Mistral 7B Instruct (Free)",
-                        "OpenAI GPT-OSS 120B (Free)",
-                        "Moonshot Kimi K2 (Free)",
-                        "OpenAI GPT-OSS 120B (Paid)",
-                        "Anthropic Claude Sonnet 4 (Paid)",
-                        "Google Gemini 2.5 Pro (Paid)",
-                        "X-AI Grok Code Fast 1 (Paid)",
-                        "Deepseek 71B (Paid)",
-                        "Qwen 30B (Paid)"
-
-                    ]
-                }
-            }
+    "menus": {
+      "scm/title": [
+        {
+          "when": "scmProvider == 'git'",
+          "command": "commit-genius.generateAICommitMessage",
+          "group": "navigation"
         }
+      ]
     },
-    "scripts": {
-        "test": "node ./test/runTest.js"
-    },
-    "devDependencies": {
-        "@types/vscode": "^1.80.0",
-        "@types/glob": "^8.1.0",
-        "@types/mocha": "^10.0.1",
-        "@types/node": "20.2.5",
-        "eslint": "^8.41.0",
-        "glob": "^8.1.0",
-        "mocha": "^10.2.0",
-        "typescript": "^5.1.3",
-        "@vscode/test-electron": "^2.3.2"
-    },
-    "dependencies": {
-        "axios": "^1.6.0"
+    "configuration": {
+      "title": "Commit Genius",
+      "properties": {
+        "commit-genius.model": {
+          "type": "string",
+          "default": "mistralai/mistral-small-3.2-24b-instruct:free",
+          "description": "The AI model to use for generating commit messages from OpenRouter.",
+          "enum": [
+            "deepseek/deepseek-chat-v3-0324:free",
+            "qwen/qwen3-coder:free",
+            "mistralai/mistral-small-3.2-24b-instruct:free",
+            "openai/gpt-oss-120b:free",
+            "moonshotai/kimi-k2:free",
+            "openai/gpt-oss-120b",
+            "anthropic/claude-sonnet-4",
+            "google/gemini-2.5-pro",
+            "x-ai/grok-code-fast-1",
+            "deepseek/deepseek-chat-v3.1",
+            "qwen/qwen3-30b-a3b-instruct-2507"
+          ],
+          "enumDescriptions": [
+            "Deepseek 71B (Free)",
+            "Qwen 7B (Free)",
+            "Mistral 7B Instruct (Free)",
+            "OpenAI GPT-OSS 120B (Free)",
+            "Moonshot Kimi K2 (Free)",
+            "OpenAI GPT-OSS 120B (Paid)",
+            "Anthropic Claude Sonnet 4 (Paid)",
+            "Google Gemini 2.5 Pro (Paid)",
+            "X-AI Grok Code Fast 1 (Paid)",
+            "Deepseek 71B (Paid)",
+            "Qwen 30B (Paid)"
+          ]
+        }
+      }
     }
+  },
+  "scripts": {
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "20.2.5",
+    "eslint": "^8.41.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.3",
+    "@vscode/test-electron": "^2.3.2"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
 }
-
