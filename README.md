@@ -141,7 +141,7 @@ Tired of spending precious time crafting the perfect commit message? **Commit Ge
 
 #### Rate Limits
 - Free models have usage limits
-- If you hit a rate limit, wait a few minutes or switch to a premium model
+- If you hit a rate limit, wait a few minutes or switch to a other free models or premium models
 - Consider upgrading to premium models for heavy usage
 
 #### API Key Issues
