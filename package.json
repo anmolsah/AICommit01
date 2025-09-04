@@ -1,8 +1,8 @@
 {
   "name": "commit-genius",
-  "displayName": "Commit Genius",
-  "description": "Generate professional commit messages using AI.",
-  "version": "3.2.1",
+  "displayName": "Commit Genius - AI Git Commit Message Generator",
+  "description": "🚀 AI-powered Git commit message generator for VS Code. Auto-generate professional, conventional commit messages using OpenAI, Claude, Gemini & more. Free & premium models available.",
+  "version": "3.2.2",
   "publisher": "aicommit-publisher",
   "icon": "icon.png",
   "engines": {
@@ -10,15 +10,60 @@
   },
   "categories": [
     "SCM Providers",
+    "Machine Learning",
     "Other"
   ],
+  "keywords": [
+    "git",
+    "commit",
+    "ai",
+    "artificial intelligence",
+    "commit message",
+    "conventional commits",
+    "openai",
+    "claude",
+    "gemini",
+    "source control",
+    "scm",
+    "automation",
+    "productivity",
+    "developer tools",
+    "git workflow",
+    "commit generator",
+    "ai assistant",
+    "code quality",
+    "version control",
+    "git integration",
+    "commit standards",
+    "conventional",
+    "semantic commits",
+    "auto commit",
+    "smart commits",
+    "gpt",
+    "llm",
+    "machine learning",
+    "deepseek",
+    "mistral",
+    "qwen",
+    "openrouter"
+  ],
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/anmolsah/AICommit01"
   },
+  "homepage": "https://github.com/anmolsah/AICommit01",
+  "bugs": {
+    "url": "https://github.com/anmolsah/AICommit01/issues"
+  },
+  "qna": "marketplace",
+  "sponsor": {
+    "url": "https://github.com/sponsors/anmolsah"
+  },
   "activationEvents": [
-    "onCommand:commit-genius.generateAICommitMessage",
-    "onCommand:commit-genius.setApiKey",
     "workspaceContains:.git"
   ],
   "main": "./extension.js",
