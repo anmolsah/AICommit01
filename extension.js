@@ -1,6 +1,5 @@
 const vscode = require("vscode");
 
-// Load axios only when needed to avoid activation delays
 
 /**
  * @param {vscode.ExtensionContext} context
