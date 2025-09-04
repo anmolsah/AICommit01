@@ -95,7 +95,7 @@
       "properties": {
         "commit-genius.model": {
           "type": "string",
-          "default": "mistralai/mistral-small-3.2-24b-instruct:free",
+          "default": "moonshotai/kimi-k2:free",
           "description": "The AI model to use for generating commit messages from OpenRouter.",
           "enum": [
             "deepseek/deepseek-chat-v3-0324:free",
