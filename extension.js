@@ -265,8 +265,8 @@ Commit message:`;
 
         let commitMessage = response.data.choices[0].message.content
           .trim()
-          .replace(/^["'`]|["'`]$/g, "") // Remove quotes
-          .replace(/\n.*$/s, ""); // Take only first line
+          .replace(/^["'`]|["'`]$/g, "") 
+          .replace(/\n.*$/s, ""); 
 
         // Ensure it's not too long
         if (commitMessage.length > 72) {
