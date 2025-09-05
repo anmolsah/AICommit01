@@ -181,6 +181,43 @@ Look for the ✨ sparkle button in your Source Control panel - you're ready to g
 
 ### Troubleshooting
 
+---
+
+## 🛠️ Troubleshooting API Issues
+
+### ❌ Problem: API Error (404) with Free Models
+
+If you see an error like:
+
+
+This happens because most **free models on OpenRouter do not support Zero Data Retention (ZDR)**.  
+When ZDR is enabled, free endpoints are filtered out, which causes the 404 error.
+
+---
+
+### ✅ Fix: Update OpenRouter Privacy Settings
+
+1. Go to [OpenRouter Privacy Settings](https://openrouter.ai/settings/privacy).
+2. Under **Training, Logging & Privacy**, configure your settings as shown below:
+   - Enable **Free endpoints that may train on inputs** ✅
+   - Enable **Free endpoints that may publish prompts** ✅
+   - Enable **Input/output logging for all requests** ✅
+   - Disable **ZDR Endpoints Only** ❌ (turn this off if you want to use free models)
+
+📷 Example configuration:
+
+![OpenRouter Privacy Settings](./assets/openrouter_privacy_setting.png)
+
+---
+
+### ℹ️ Notes
+
+- If you **require ZDR for compliance**, you’ll need to use **paid models** (e.g., Claude, GPT-4 Turbo, Gemini Pro) because free models don’t support ZDR.
+- For most personal projects, the above settings will allow free models to work smoothly.
+
+---
+
+
 #### Rate Limits
 
 - Free models have usage limits
@@ -286,7 +323,7 @@ If you find Commit Genius helpful, please:
 
 <div align="center">
 
-**Made with ❤️ by Anmol | Trusted by 10,000+ Developers Worldwide**
+**Made with ❤️ by Anmol**
 
 [🏠 Homepage](https://github.com/anmolsah/AICommit01) • [📦 VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius) • [⭐ GitHub](https://github.com/anmolsah/AICommit01) • [📧 Support](https://github.com/anmolsah/AICommit01/issues)
 
