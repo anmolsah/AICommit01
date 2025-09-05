@@ -183,7 +183,7 @@ Look for the ✨ sparkle button in your Source Control panel - you're ready to g
 
 ---
 
-## 🛠️ Troubleshooting API Issues
+##  Troubleshooting API Issues
 
 ### ❌ Problem: API Error (404) with Free Models
 
@@ -195,7 +195,7 @@ When ZDR is enabled, free endpoints are filtered out, which causes the 404 error
 
 ---
 
-### ✅ Fix: Update OpenRouter Privacy Settings
+###  Fix: Update OpenRouter Privacy Settings
 
 1. Go to [OpenRouter Privacy Settings](https://openrouter.ai/settings/privacy).
 2. Under **Training, Logging & Privacy**, configure your settings as shown below:
@@ -204,7 +204,7 @@ When ZDR is enabled, free endpoints are filtered out, which causes the 404 error
    - Enable **Input/output logging for all requests** ✅
    - Disable **ZDR Endpoints Only** ❌ (turn this off if you want to use free models)
 
-📷 Example configuration:
+ Example configuration:
 
 ![OpenRouter Privacy Settings](./assets/openrouter_privacy_setting.png)
 
