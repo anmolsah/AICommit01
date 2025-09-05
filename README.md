@@ -164,7 +164,7 @@ Look for the ✨ sparkle button in your Source Control panel - you're ready to g
 
 ```json
 {
-  "commit-genius.model": "mistralai/mistral-small-3.2-24b-instruct:free"
+  "commit-genius.model": "moonshotai/kimi-k2:free"
 }
 ```
 

@@ -176,7 +176,7 @@ async function generateMessageFromDiff(diff, context, repo) {
 
   // Get model configuration
   const config = vscode.workspace.getConfiguration("commit-genius");
-  const model = config.get("model") || "mistralai/mistral-small-3.2-24b-instruct:free";
+  const model = config.get("model") || "moonshotai/kimi-k2:free";
 
   // Create prompt
   const prompt = `Based on the following git diff, generate a concise and professional commit message following conventional commit standards.
