@@ -99,11 +99,6 @@ Stop wasting time writing commit messages! **Commit Genius** is the most popular
 code --install-extension aicommit-publisher.commit-genius
 ```
 
-### Method 3: Direct Download
-
-- Download the latest `.vsix` file from [GitHub Releases](https://github.com/anmolsah/AICommit01/releases)
-- Install via `Extensions: Install from VSIX` command in VS Code
-
 ### ✅ Verify Installation
 
 Look for the ✨ sparkle button in your Source Control panel - you're ready to go!
@@ -322,10 +317,6 @@ If you find Commit Genius helpful, please:
 
 **Made with ❤️ by Anmol**
 
-[🏠 Homepage](https://github.com/anmolsah/AICommit01) • [📦 VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius) • [⭐ GitHub](https://github.com/anmolsah/AICommit01) • [📧 Support](https://github.com/anmolsah/AICommit01/issues)
-
-### 🚀 More AI Tools for Developers
-
-Looking for more AI-powered development tools? Check out our other extensions and follow us for updates!
+[🏠 Homepage](https://github.com/anmolsah/AICommit01) • [📦 VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius) • [⭐ GitHub](https://github.com/anmolsah/AICommit01)
 
 </div>
