@@ -3,9 +3,6 @@
 
 # <img src="./icon.png" alt="Commit Genius Logo" width="80"/> <br/> Commit Genius - AI Git Commit Message Generator
 
-**🚀 The #1 AI-Powered Git Commit Message Generator for VS Code | OpenAI, Claude, Gemini & More**
-
-> Transform your Git workflow with intelligent commit messages that follow conventional commit standards. Generate professional commits in seconds using advanced AI models - completely free to start!
 
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/aicommit-publisher.commit-genius?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius)
 [![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/aicommit-publisher.commit-genius?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=aicommit-publisher.commit-genius)
