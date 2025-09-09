@@ -297,15 +297,15 @@ If you find Commit Genius helpful, please:
 
 ### Q: Is Commit Genius really free?
 
-**A:** Yes! We offer powerful free AI models including DeepSeek, Qwen, Mistral, and OpenAI GPT-OSS. Premium models are available for advanced users.
+**A:** Commit Genius has both paid and free models. It totally depends upon user which model he/she is going to use.
 
 ### Q: How does it compare to GitHub Copilot?
 
-**A:** Commit Genius specializes in commit messages with conventional commit standards, while Copilot focuses on code completion. They work great together!
+**A:** Commit Genius is not a replacement for GitHub Copilot. It is a tool that helps you generate commit messages. It's just free if you use free model whereas Copilot need subscription.
 
 ### Q: What AI models are supported?
 
-**A:** We support 15+ models including OpenAI GPT, Claude Sonnet 4, Google Gemini 2.5 Pro, DeepSeek, Mistral, Qwen, and more via OpenRouter.ai.
+**A:** 12+ models including OpenAI GPT, Claude Sonnet 4, Google Gemini 2.5 Pro, DeepSeek, Mistral, Qwen, and more via OpenRouter.ai.
 
 
 ## 🏷️ Tags & Keywords
