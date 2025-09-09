@@ -71,6 +71,16 @@ Stop wasting time writing commit messages! **Commit Genius** is the most popular
 
 ## Demo Videos
 
+### 🔥 Model Demo
+
+<div align="center">
+
+![Model Demo GIF](assets/Demoofcommitgenius.gif)
+
+*Switch between free and premium AI models in settings*
+
+</div>
+
 ### ✨ Sparkle Button in Action
 
 <div align="center">
@@ -142,6 +152,9 @@ Look for the ✨ sparkle button in your Source Control panel - you're ready to g
 | `mistralai/mistral-small-3.2-24b-instruct:free` | Mistral | Balanced performance and speed |
 | `openai/gpt-oss-120b:free` | OpenAI | Large context understanding |
 | `moonshotai/kimi-k2:free` | MoonshotAI | Optimized for agentic capabilities |
+| `meta-llama/llama-3.3-70b-instruct:free` | Meta Llama | multilingual large language model |
+| `nvidia/llama-3.1-nemotron-ultra-253b-v1:free` | NVIDIA | Advanced reasoning model |
+| `deepseek/deepseek-r1-0528:free` | DeepSeek | Advanced reasoning model |
 
 #### 💎 Premium Models
 
@@ -151,6 +164,9 @@ Look for the ✨ sparkle button in your Source Control panel - you're ready to g
 | `google/gemini-2.5-pro` | Google | Advanced multimodal capabilities |
 | `x-ai/grok-code-fast-1` | X.AI | Fast and efficient code generation |
 | `deepseek/deepseek-chat-v3.1` | DeepSeek | Enhanced version with better accuracy |
+| `mistralai/mistral-7b-instruct` | Mistral | High-quality responses |
+| `qwen/qwen3-30b-a3b-instruct-2507` | Qwen | Advanced reasoning model |
+| `openai/gpt-5` | OpenAI | Cutting-edge language understanding |
 
 ### Settings Configuration
 
@@ -305,7 +321,7 @@ If you find Commit Genius helpful, please:
 
 ### Q: What AI models are supported?
 
-**A:** 12+ models including OpenAI GPT, Claude Sonnet 4, Google Gemini 2.5 Pro, DeepSeek, Mistral, Qwen, and more via OpenRouter.ai.
+**A:** 15+ models including OpenAI GPT, Claude Sonnet 4, Google Gemini 2.5 Pro, DeepSeek, Mistral, Qwen, and more via OpenRouter.ai.
 
 
 ## 🏷️ Tags & Keywords
