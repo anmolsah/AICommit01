@@ -18,7 +18,7 @@
 
 ## 🎯 Why Choose Commit Genius? The Ultimate AI Git Assistant
 
-Stop wasting time writing commit messages! **Commit Genius** is the most popular AI-powered Git commit generator for VS Code, trusted by thousands of developers worldwide. Generate professional, conventional commit messages using cutting-edge AI models including OpenAI GPT, Claude, Gemini, DeepSeek, and more.
+Stop wasting time writing commit messages! **Commit Genius** is solution to generate standard commit messages with AI. Generate professional, conventional commit messages using cutting-edge AI models including OpenAI GPT, Claude, Gemini, DeepSeek, and more.
 
 ### 🏆 What Makes Us Different
 
