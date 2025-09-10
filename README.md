@@ -95,19 +95,13 @@ Stop wasting time writing commit messages! **Commit Genius** is solution to gene
 
 ## 📦 Installation - Get Started in 30 Seconds
 
-### Method 1: VS Code Marketplace (Recommended)
+### VS Code Marketplace 
 
 1. Open **Visual Studio Code**
 2. Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac) to open Extensions
 3. Search for **"Commit Genius"** or **"AI Git Commit"**
 4. Click **Install** on the extension by `aicommit-publisher`
 5. Reload VS Code if prompted
-
-### Method 2: Command Line Installation
-
-```bash
-code --install-extension aicommit-publisher.commit-genius
-```
 
 ### ✅ Verify Installation
 
