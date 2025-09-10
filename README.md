@@ -23,14 +23,14 @@ Stop wasting time writing commit messages! **Commit Genius** is solution to gene
 ### 🏆 What Makes Us Different
 
 - **🆓 100% Free to Start**: Use powerful free AI models with no credit card required
-- **⚡ Instant Generation**: Create perfect commit messages in under 3 seconds
+- **⚡ Instant Generation**: Create perfect commit messages in under 4 seconds
 - **🎯 Smart Staging**: Automatically stages your changes - no manual work needed
 - **📊 Conventional Standards**: Follows industry-standard commit conventions (feat, fix, chore, etc.)
 - **🔒 Enterprise Security**: Your code never leaves your machine - only diffs are analyzed
 
 ### ✨ Key Benefits That Developers Love
 
-- **⚡ Lightning Fast**: Generate commit messages in under 3 seconds
+- **⚡ Lightning Fast**: Generate commit messages in under 4 seconds
 - **🤖 Multiple AI Models**: OpenAI GPT, Claude Sonnet, Google Gemini, DeepSeek, Mistral, Qwen
 - **📏 Conventional Commits**: Perfect `feat:`, `fix:`, `chore:`, `docs:` formatting every time
 - **🆓 Free Forever**: Start with powerful free models, upgrade when you need more
