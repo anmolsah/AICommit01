@@ -2,7 +2,7 @@
   "name": "commit-genius",
   "displayName": "Commit Genius - AI Git Commit Message Generator",
   "description": "🚀 AI-powered Git commit message generator for VS Code. Auto-generate professional, conventional commit messages using OpenAI, Claude, Gemini & more. Free & premium models available.",
-  "version": "3.3.0",
+  "version": "3.3.2",
   "publisher": "aicommit-publisher",
   "icon": "icon.png",
   "engines": {
@@ -80,7 +80,7 @@
         {
           "when": "scmProvider == 'git'",
           "command": "commit-genius.generateAICommitMessage",
-          "group": "navigation"
+          "group": "navigation@3"
         }
       ]
     },
