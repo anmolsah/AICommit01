@@ -103,6 +103,15 @@ Stop wasting time writing commit messages! **Commit Genius** is solution to gene
 4. Click **Install** on the extension by `aicommit-publisher`
 5. Reload VS Code if prompted
 
+### Open VSX Registry (For Other IDEs)
+
+This extension is also available on the **Open VSX Registry** for users of alternative IDEs like **Trae**, **Kiro**, **VSCodium**, and other VS Code compatible editors:
+
+1. Open your IDE's extension panel
+2. Search for **"Commit Genius"** or **"AI Git Commit"**
+3. Install the extension from the marketplace
+4. Restart your IDE if needed
+
 ### ✅ Verify Installation
 
 Look for the ✨ sparkle button in your Source Control panel - you're ready to go!
