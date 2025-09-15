@@ -80,7 +80,7 @@
         {
           "when": "scmProvider == 'git'",
           "command": "commit-genius.generateAICommitMessage",
-          "group": "navigation@3"
+          "group": "navigation"
         }
       ]
     },
