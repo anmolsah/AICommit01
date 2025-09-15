@@ -99,7 +99,7 @@ Stop wasting time writing commit messages! **Commit Genius** is solution to gene
 
 1. Open **Visual Studio Code**
 2. Press `Ctrl+Shift+X` (Windows/Linux) or `Cmd+Shift+X` (Mac) to open Extensions
-3. Search for **"Commit Genius"** or **"AI Git Commit"**
+3. Search for **"Commit Genius"**
 4. Click **Install** on the extension by `aicommit-publisher`
 5. Reload VS Code if prompted
 
