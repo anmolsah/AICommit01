@@ -2,7 +2,7 @@
   "name": "commit-genius",
   "displayName": "Commit Genius - AI Git Commit Message Generator",
   "description": "🚀 AI-powered Git commit message generator for VS Code. Auto-generate professional, conventional commit messages using OpenAI, Claude, Gemini & more. Free & premium models available.",
-  "version": "3.3.3",
+  "version": "3.3.4",
   "publisher": "aicommit-publisher",
   "icon": "icon.png",
   "engines": {
@@ -100,13 +100,16 @@
             "meta-llama/llama-3.3-70b-instruct:free",
             "nvidia/llama-3.1-nemotron-ultra-253b-v1:free",
             "deepseek/deepseek-r1-0528:free",
+            "kwaipilot/kat-coder-pro:free",
+            "z-ai/glm-4.5-air:free",
             "openai/gpt-oss-120b",
             "anthropic/claude-sonnet-4",
             "google/gemini-2.5-pro",
             "x-ai/grok-code-fast-1",
             "deepseek/deepseek-chat-v3.1",
             "qwen/qwen3-30b-a3b-instruct-2507",
-            "openai/gpt-5"
+            "openai/gpt-5",
+            "openai/gpt-5.1-codex"
           ],
           "enumDescriptions": [
             "Deepseek 71B (Free)",
